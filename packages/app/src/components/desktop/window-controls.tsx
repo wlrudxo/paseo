@@ -15,6 +15,8 @@ import {
 import { useCustomDesktopWindowControls } from "@/utils/desktop-window";
 import type { Theme } from "@/styles/theme";
 
+const WINDOW_OVERLAY_DATASET = { windowOverlay: "true" };
+
 type WindowControlKind = "minimize" | "maximize" | "restore" | "close";
 
 function WindowControlGlyph({
@@ -145,6 +147,7 @@ export function DesktopWindowControls() {
     <View
       style={[styles.controls, { height: presentation.controlHeight }]}
       testID="desktop-window-controls"
+      dataSet={WINDOW_OVERLAY_DATASET}
     >
       <WindowControl
         kind="minimize"

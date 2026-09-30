@@ -17,6 +17,7 @@ interface SidebarResizeHandleProps {
 }
 
 const HIGHLIGHT_DELAY_MS = 100;
+const NO_DRAG_DATASET = { windowNoDrag: "true" };
 
 const webResizeCursorStyle = isWeb
   ? ({
@@ -74,6 +75,7 @@ function PointerResizeHandle({ edge, gesture, testID }: SidebarResizeHandleProps
       <Pressable
         testID={testID}
         style={hitAreaStyle}
+        dataSet={NO_DRAG_DATASET}
         onHoverIn={handleHoverIn}
         onHoverOut={handleHoverOut}
       >
@@ -110,6 +112,7 @@ function TouchResizeHandle({ edge, gesture, pressed, testID }: SidebarResizeHand
         <View
           testID={testID}
           role="separator"
+          dataSet={NO_DRAG_DATASET}
           aria-orientation="vertical"
           collapsable={false}
           style={targetStyle}
